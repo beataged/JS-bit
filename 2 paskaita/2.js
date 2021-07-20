@@ -225,4 +225,4 @@ if(c1 <= 10 || c1 >= 90){
     kiekis--;
 }
 
-console.log('naujas vidurkis:', suma / kiekis, suma, kiekis);
+console.log('naujas vidurkis:', suma / kiekis, 'skaiciu suma ir kiekis:', suma, kiekis);
