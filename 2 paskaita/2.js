@@ -129,33 +129,100 @@ let twos = 0;
 console.log(a1, a2, a3, a4);
 
 if (a1 == 0) {
-    console.log(zeros++);
+    zeros++;
 } else if (a1 == 1) {
-    console.log(ones++);
+    ones++;
 } else {
-    console.log(twos++);
+    twos++;
 }
 
 if (a2 == 0) {
-    console.log(zeros++);
+    zeros++;
 } else if (a2 == 1) {
-    console.log(ones++);
+    ones++;
 } else {
-    console.log(twos++);
+    twos++;
 }
 
 if (a3 == 0) {
-    console.log(zeros++);
+    zeros++;
 } else if (a3 == 1) {
-    console.log(ones++);
+    ones++;
 } else {
-    console.log(twos++);
+    twos++;
 }
 
 if (a4 == 0) {
-    console.log(zeros++);
+    zeros++;
 } else if (a4 == 1) {
-    console.log(ones++);
+    ones++;
 } else {
-    console.log(twos++);
+    twos++;
 }
+
+console.log(zeros, ones, twos);
+
+//5 užduotis. Naudokite funkcija rand(). Atspausdinkite 3 skaičius naudodami console.log() nuo -10 iki 10. Prie skaičių mažesnių už 0 iš abiejų pusių atspauzdinkite “+” simbolius,  didesnių už 0 iš abiejų pusių atspauzdinkite “-” simbolius, o prie 0 “*” simbolius
+
+console.log('5 uzduotis');
+
+let b1 = rand(-10, 10);
+let b2 = rand(-10, 10);
+let b3 = rand(-10, 10);
+
+if(b1 < 0){
+    console.log('+', b1, '+');
+}else if(b2 < 0){
+    console.log('+', b2, '+');
+}else if(b3 < 0){
+    console.log('+', b3, '+');
+}else if(b1 > 0){
+    console.log('-', b1, '-');
+}else if(b2 > 0){
+    console.log('-', b2, '-');
+}else if(b3 > 0){
+    console.log('-', b3, '-');
+}else if(b1 == 0){
+    console.log('*', b1, '*');
+}else if(b2 == 0){
+    console.log('*', b2, '*');
+}else {
+    console.log('*', b3, '*');
+}
+
+//6 užduotis. Įmonė parduoda žvakes po 1 EUR. Perkant daugiau kaip už 1000 EUR taikoma 3 % nuolaida, daugiau kaip už 2000 EUR - 4 % nuolaida. Parašykite skriptą, kuri skaičiuos žvakių kainą ir atspausdintų atsakymą su console.log() kiek žvakių ir kokia kaina perkama. Žvakių kiekį generuokite ​rand()​ funkcija nuo 5 iki 3000.
+console.log('6 uzduotis');
+let zvakes = rand(5, 3000);
+
+if(zvakes >= 1000){
+    console.log(zvakes,'kaina: ', zvakes * 0.97);
+}else if(zvakes >= 2000){
+    console.log(zvakes,'kaina: ', zvakes * 0.96);
+}else{
+    console.log(zvakes, 'kaina: ', zvakes);
+}
+
+//7 užduotis. Naudokite funkcija rand(). Sukurkite tris kintamuosius su atsitiktinėm reikšmėm nuo 0 iki 100. Paskaičiuokite jų aritmetinį vidurkį. Ir aritmetinį vidurkį atmetus tas reikšmes, kurios yra mažesnės nei 10 arba didesnės nei 90. Abu vidurkius atspausdinkite su console.log()
+
+let c1 = rand(0,100);
+let c2 = rand(0,100);
+let c3 = rand(0,100);
+
+let suma = c1+c2+c3;
+let kiekis = 3;
+
+console.log(c1, c2, c3);
+console.log('vidurkis:', (c1+c2+c3)/3);
+
+if(c1 <= 10 || c1 >= 90){
+    suma = suma - c1;
+    kiekis--;
+}if(c2 <= 10 || c2 >= 90){
+    suma = suma - c2;
+    kiekis--;
+}if(c3 <= 10 || c3 >= 90){
+    suma = suma - c3;
+    kiekis--;
+}
+
+console.log('naujas vidurkis:', suma / kiekis, suma, kiekis);

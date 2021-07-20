@@ -237,18 +237,34 @@ let daug = rand(1000000, 9999999);
 
 // Išvesti skaičių daug ir suskaičiuoti iš kelių duotų skaičių: 5, 10, 33 jis dalijasi be liekanos. Rezultatą išvesti.
 
-if (daug%5 == 0) {
-    console.log(daug, 'dalijasi is 5', daug / 5);
-} else if (daug % 10 == 0) {
-    console.log(daug, 'dalijasi is 10', daug / 10);
-} else if (daug % 33 == 0) {
-    console.log(daug, 'dalijasi is 33', daug / 33);
-} else if (daug%5 == 0 && daug%10 == 0){
-    console.log(daug, 'dalijasi is 5 ir 10', daug / 5, daug / 10);
-} else if (daug%5 == 0 && daug%10 == 0 && daug%33){
-    console.log(daug, 'dalijasi is 5 10 ir 33', daug / 5, daug / 10, daug / 33);
-}else if (daug % 5 != 0 || daug % 10 != 0 || daug % 33 != 0){
-    console.log(daug, 'dalijasi su liekana');
+if (daug % 5 == 0 || daug % 10 == 0 || daug % 33 == 0) {
+    if (daug % 5 == 0 && daug % 10 == 0 && daug % 33 == 0) {
+        console.log(daug, 'dalijasi is 5: ', daug / 5, 'dalijasi is 10: ', daug / 10, 'dalijasi is: ', daug / 33);
+    } else if ((daug % 5 == 0 && daug % 10 == 0) || (daug % 5 == 0 && daug % 33 == 0) || (daug % 10 == 0 && daug % 33 == 0)) {
+        if (daug % 5 == 0 && daug % 10 == 0) {
+            console.log(daug, 'dalijasi is 5: ', daug / 5, 'dalijasi is 10: ', daug / 10);
+        }
+        if (daug % 5 == 0 && daug % 33 == 0) {
+            console.log(daug, 'dalijasi is 5: ', daug / 5, 'dalijasi is 33: ', daug / 33);
+        }
+        if (daug % 10 == 0 && daug % 33 == 0) {
+            console.log(daug, 'dalijasi is 10: ', daug / 10, 'dalijasi is 33: ', daug / 33);
+        }
+    }
+    else if (daug % 5 == 0 || daug % 10 == 0 || daug % 33 == 0) {
+        if (daug % 5 == 0) {
+            console.log(daug, 'dalijasi is 5:', daug / 5);
+        }
+        if (daug % 10 == 0) {
+            console.log(daug, 'dalijasi is 10:', daug / 10);
+        }
+        if (daug % 33 == 0) {
+            console.log(daug, 'dalijasi is 33:', daug / 33);
+        }
+    }
+
+} else {
+    console.log(daug, 'nesidalina is nei vieno');
 }
 
 //10.
@@ -293,14 +309,14 @@ if (s == 1) {
 
 }
 
-console.log('as:', as,'tu:', tu);
+console.log('as:', as, 'tu:', tu);
 
-if((as == 'akmuo' && tu == 'akmuo') || (as == 'zirkles' && tu == 'zirkles') || (as == 'popierius' && tu == 'popierius') ){
+if ((as == 'akmuo' && tu == 'akmuo') || (as == 'zirkles' && tu == 'zirkles') || (as == 'popierius' && tu == 'popierius')) {
     console.log('Lygiosios');
-}else if((as == 'popierius' && tu == "akmuo") || (as == 'akmuo' && tu == 'zirkles')||(as == 'zirkles' && tu == 'popierius') ){
+} else if ((as == 'popierius' && tu == "akmuo") || (as == 'akmuo' && tu == 'zirkles') || (as == 'zirkles' && tu == 'popierius')) {
     console.log('Laimejau as');
-}else if((tu == 'popierius' && as == "akmuo") || (tu == 'akmuo' && as == 'zirkles')||(tu == 'zirkles' && as == 'popierius') ){
+} else if ((tu == 'popierius' && as == "akmuo") || (tu == 'akmuo' && as == 'zirkles') || (tu == 'zirkles' && as == 'popierius')) {
     console.log('Laimejai tu');
-}else {
+} else {
     console.log('zaidimo ner')
 }
