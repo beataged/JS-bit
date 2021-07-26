@@ -198,3 +198,16 @@ do {
 }while (visoMazuCiklu >= 20);
 
 console.log(visoMazuCiklu, random);
+
+
+//9. Ciklo viduje generuokite atsitiktinius skaičius funkcija rand(), kurie yra iš intervalo 5-10. Ciklą kartokite tol, kol ciklo viduje bus sugeneruotas skaičius 5;aCiklo viduje paleiskite dar vieną ciklą kurį kartokite tiek kartų, koks skaičius buvo sugeneruotas. Paskaičiuokite kiek iteracijų padarė išorinis ciklas ir kiek bendrai iteracijų padarė vidinis ciklas. Rezultatus atspauzdinkite pasinaudodami console.log už ciklo ribų jam pasibaigus; B Padarykite taip, kad išorinis ciklas pasibaigtų kai 5 yra sugeneruojamas ne pirmą, bet trečią kartą ir paskaičiuokite iteracijas analogiškai kaip A dalyje; C Padarykite analogiškai kaip B dalyje, bet tik kai 5 yra sugeneruojami 3 kartus iš eilės;
+
+console.log('Devintas A');
+ 
+
+for(let i = 0; i<skaicius; i++){
+    let skaicius = rand(5, 10);
+    if (skaicius == 5){
+        console.log(skaicius);
+    }
+}
