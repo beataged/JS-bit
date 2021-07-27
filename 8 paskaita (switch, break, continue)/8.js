@@ -1,3 +1,14 @@
+function rand(min, max) {
+
+    min = Math.ceil(min);
+
+    max = Math.floor(max);
+
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+
+}
+
+
 //Kiek yra skaičių nuo 5 iki 100 kurie be liekanos dalijasi iš 3?
 console.log('Uzduotis 1');
 
@@ -164,3 +175,33 @@ do{
 }while(++sk % 3  ||++c);
 
 console.log(sk);
+
+console.log('___________________________');
+
+//continue siuo atveju praleis 5 iteracija, kai i bus lygu 5, tada viska praleis ir gris i prazia ir prades vel cikla nuo 6
+
+for(let i = 1; i<=11; i++){
+
+    if(i === 5){
+        continue;
+    }
+
+    console.log(i);
+}
+
+//kad console.log spausdintu visus skaicius, kurie nesidalina is 3 (su continue)
+//kad spausdinimas nutruktu kai i yra daugiau nei 40 (su break)
+console.log('uzd___________________________');
+for(let i = 1; i <=111; i++){
+
+    if(i%3==0 ){
+        continue;
+    }
+
+    if(i>40){
+        break;
+    }
+
+    console.log(i);
+
+}

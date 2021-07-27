@@ -195,19 +195,36 @@ do {
         visoMazuCiklu++;
     } while (random >= 12)
 
-}while (visoMazuCiklu >= 20);
+} while (visoMazuCiklu >= 20);
 
 console.log(visoMazuCiklu, random);
 
 
-//9. Ciklo viduje generuokite atsitiktinius skaičius funkcija rand(), kurie yra iš intervalo 5-10. Ciklą kartokite tol, kol ciklo viduje bus sugeneruotas skaičius 5;aCiklo viduje paleiskite dar vieną ciklą kurį kartokite tiek kartų, koks skaičius buvo sugeneruotas. Paskaičiuokite kiek iteracijų padarė išorinis ciklas ir kiek bendrai iteracijų padarė vidinis ciklas. Rezultatus atspauzdinkite pasinaudodami console.log už ciklo ribų jam pasibaigus; B Padarykite taip, kad išorinis ciklas pasibaigtų kai 5 yra sugeneruojamas ne pirmą, bet trečią kartą ir paskaičiuokite iteracijas analogiškai kaip A dalyje; C Padarykite analogiškai kaip B dalyje, bet tik kai 5 yra sugeneruojami 3 kartus iš eilės;
+//9. Ciklo viduje generuokite atsitiktinius skaičius funkcija rand(), kurie yra iš intervalo 5-10. Ciklą kartokite tol, kol ciklo viduje bus sugeneruotas skaičius 5;A Ciklo viduje paleiskite dar vieną ciklą kurį kartokite tiek kartų, koks skaičius buvo sugeneruotas. Paskaičiuokite kiek iteracijų padarė išorinis ciklas ir kiek bendrai iteracijų padarė vidinis ciklas. Rezultatus atspauzdinkite pasinaudodami console.log už ciklo ribų jam pasibaigus; B Padarykite taip, kad išorinis ciklas pasibaigtų kai 5 yra sugeneruojamas ne pirmą, bet trečią kartą ir paskaičiuokite iteracijas analogiškai kaip A dalyje; C Padarykite analogiškai kaip B dalyje, bet tik kai 5 yra sugeneruojami 3 kartus iš eilės;
+
+console.log('Devintas');
+
+let skaicius;
+
+do {
+    skaicius = rand(5, 10);
+    console.log(skaicius);
+} while (skaicius == 5);
 
 console.log('Devintas A');
- 
 
-for(let i = 0; i<skaicius; i++){
-    let skaicius = rand(5, 10);
-    if (skaicius == 5){
-        console.log(skaicius);
+let skaicius2;
+let didelis = 0;
+let mazas = 0;
+
+do {
+    didelis++;
+    skaicius2 = rand(5, 10);
+    console.log(skaicius2);
+    for(let i = 0; i <= skaicius2; i++){
+        mazas++;
     }
-}
+   
+} while (skaicius2 == 5);
+
+console.log(didelis, mazas);
