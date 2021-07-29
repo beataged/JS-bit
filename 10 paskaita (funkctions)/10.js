@@ -141,14 +141,10 @@ console.log(reverseWord('sula'));
 //stringe visas balses pakeisti i *
 
 function zvaigzdute(word){
-    const regex = /[aeiou]/gi;
+    const regex = /[aeiouūįąęėų]/gi;
     word.replaceAll(regex, "*");
-//     for(let i = 0; i<word.length; i++){
-//        if(word[i].includes(regex) ){
-//            word[i] = '*';
-//        }
-//     }
+
 return word.replaceAll(regex, "*");;
 }
 
-console.log(zvaigzdute('papuga'));
+console.log(zvaigzdute('pąpęga'));
