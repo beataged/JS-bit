@@ -103,12 +103,21 @@ let mas4 = [];
 let suma3 =0;
 
 for (let i = 0; i < rand(10, 30); i++) {
-    let kint = rand(0, 10);
-
-    if(mas1[i] <= 2 ){
-        mas1[i] === 0;
+    mas4.push(rand(0, 10));
+    if(mas4[i] <= 2){
+        mas4[i] = 0;
     }
-   
+}
+console.log(mas4.slice());
+
+//Surasti didžiausią reikšmę 1 uždavinio masyve ir paskaičiuoti kiek tokių didžiausių reikšmių masyve yra;
+console.log("_______________5_____________________");
+
+let mas5 = [];
+
+for (let i = 0; i < rand(10, 30); i++) {
+    mas5.push(rand(0, 10));
     
 }
-console.log(mas1.slice());
+console.log(mas5);
+
