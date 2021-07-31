@@ -114,10 +114,22 @@ console.log(mas4.slice());
 console.log("_______________5_____________________");
 
 let mas5 = [];
+let maxReiksme = 0;
+let maxReiksmiuSuma = 0;
 
 for (let i = 0; i < rand(10, 30); i++) {
     mas5.push(rand(0, 10));
+    if(mas5[i]> maxReiksme){
+        maxReiksme = mas5[i];
+    }
     
 }
+for (let i = 0; i < rand(10, 30); i++) {
+    if(mas5[i] == maxReiksme){
+        maxReiksmiuSuma++;
+    }
+}
+
 console.log(mas5);
+console.log('Didziausia reiksme', maxReiksme, 'suma:', maxReiksmiuSuma);
 
