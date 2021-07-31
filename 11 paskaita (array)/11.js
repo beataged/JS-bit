@@ -133,3 +133,29 @@ for (let i = 0; i < rand(10, 30); i++) {
 console.log(mas5);
 console.log('Didziausia reiksme', maxReiksme, 'suma:', maxReiksmiuSuma);
 
+//Visus masyvo elementus, kurie yra lygūs 0, pakeisti į tų elementų indeksų (vietų, numerių) reikšmes;
+console.log("_______________6_____________________");
+
+let mas6 = [];
+
+for (let i = 0; i < rand(10, 30); i++) {
+    mas6.push(rand(0, 10));
+
+    if(mas6[i] == 0){
+        mas6[i] = i;
+
+    }
+    
+}
+console.log(mas6);
+
+// /Į 1 uždavinio masyvą pridėti tiek naujų reikšmių (pinigų, atsitiktinių skaičių nuo 0 iki 10), kad masyvo ilgis būtų lygiai 30;
+console.log("_______________7_____________________");
+
+let mas7 = [];
+
+for (let i = 0; i < rand(10, 30); i++) {
+    mas7.push(rand(0, 10));
+}
+console.log(mas7);
+
