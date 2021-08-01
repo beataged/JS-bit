@@ -143,7 +143,6 @@ for (let i = 0; i < rand(10, 30); i++) {
 
     if(mas6[i] == 0){
         mas6[i] = i;
-
     }
     
 }
@@ -156,6 +155,54 @@ let mas7 = [];
 
 for (let i = 0; i < rand(10, 30); i++) {
     mas7.push(rand(0, 10));
+
 }
 console.log(mas7);
 
+while (mas7.length < 30){
+    mas7.push(rand(0, 10));
+}
+
+console.log('ilgis 30:', mas7)
+
+//Naudojant 1 uždavinio masyvą iš jo reikšmių sukurti dar du papildomus masyvus. Į vieną iš 1 uždavinio masyvo pridėti reikšmes mažesnes arba lygias 2 (monetas), o į kitą didesnes nei 2 (popierinius pinigus);
+console.log("_______________8_____________________");
+
+let mas8 = [];
+let mas8_1 = [];
+let mas8_2 = [];
+
+for (let i = 0; i < rand(10, 30); i++) {
+    mas8.push(rand(0, 10));
+    if(mas8[i] <= 2){
+        mas8_1.push(mas8[i]);
+    }else{
+        mas8_2.push(mas8[i]);
+    }
+
+}
+console.log(mas8); 
+
+console.log('reiksmes mazesnes arba lygios 2: ', mas8_1);
+console.log('reiksmes didesnes uz 2: ', mas8_2);
+
+//Sukurti masyvą (piniginę su dviem skyreliais) iš dviejų elementų, kurio pirmas elementas būtų masyvas iš 8 uždavinio su monetom, o antras elementas masyvas iš 8 uždavinio su popieriniais pinigais;
+console.log("_______________9_____________________");
+
+let mas8 = [];
+let mas8_1 = [];
+let mas8_2 = [];
+
+for (let i = 0; i < rand(10, 30); i++) {
+    mas8.push(rand(0, 10));
+    if(mas8[i] <= 2){
+        mas8_1.push(mas8[i]);
+    }else{
+        mas8_2.push(mas8[i]);
+    }
+
+}
+console.log(mas8); 
+
+console.log('reiksmes mazesnes arba lygios 2: ', mas8_1);
+console.log('reiksmes didesnes uz 2: ', mas8_2);
