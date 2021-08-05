@@ -86,5 +86,28 @@ console.log(body);
 // let hello = document.createTextNode('Hello');
 
 for(let i = 0; i < 10; i++){
-    let hello = document.createTextNode('Hello');
+
+    let newDiv = document.createElement('div');
+    let hello = document.createTextNode('hello');
+    newDiv.appendChild(hello);
+    
+    let container = document.querySelector('.container');
+
+    container.appendChild(newDiv);
 }
+
+
+// //1. Sukuriam elementą
+// let newH1 = document.createElement("h1");
+
+// //2. Sukuriam text nodą
+// let labasVakaras = document.createTextNode("Labas Vakaras!");
+
+// //3. Text nodą įdedame į elementą
+// newH1.appendChild(labasVakaras);
+
+// //4. Surandam html'e tėvinį tagą į kurį dėsim elementą
+// let container = document.querySelector(".container");
+
+// //5. Į tėvą įdedame sukurtą elementą
+// container.appendChild(newH1);
