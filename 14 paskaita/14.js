@@ -96,7 +96,8 @@ spaustiButton.addEventListener('mouseover', () => {
 //Iš tago h1 pašalinti klasę main;
 //Tik tam h2 tagui, kuris iškart eina po h1 tagui pridėti klasę first ir pašalinti klasę main;
 //Pirmam span tagui, kuris yra h2 viduje sumažinti fonto dydį iki 10px ir nudažyti pilkai
-document.querySelector("h1").style.color = 'darkgreen';
+const tagas = document.querySelector("h1");
+tagas.style.color = 'darkgreen';
 
 const tagas1 = document.querySelector('i');
 tagas1.classList.add('small');
@@ -182,8 +183,27 @@ console.log(ats);
 
 // /Elementų events
 //a Padaryti tai ką liepia mygtukai Header1 sekcijoje;
+const click = document.querySelector('#h1-color');
+
+click.addEventListener('click', () => tagas.style.color = 'red' );
+
+const click2 = document.querySelector('#h1-font');
+
+click2.addEventListener('click', () => tagas.style.fontSize = '10px' );
+
+const click3 = document.querySelector('#h1-color-back');
+
+click3.addEventListener('click', () => tagas.style.color = null );
+
+const click4 = document.querySelector('#h1-font-back');
+
+click4.addEventListener('click', () => tagas.style.fontSize = null );
 
 //b Padaryti, kad paspaudus ant i tago jis pakeistų fonto svorį į bold;
+
+
+
+// tagas1. addEventListener('click', () => )
 //c Padaryti, kad paspaudus ant tago su klase prices, backgroundas pasikeistų į pilką, o paspaudus dar kartą vėl grįžtu į baltą spalvą;
 //d Padaryti, kad paspaudus ant tago su id contacts, tam tagui būtų pridėta css savybė color = orange;
 //e Padaryti taip, kad paspaudus ant padidinti, esančio tage su id contacts, tagui su id contacts būtų pridėta css savybė fontSize = 20px;
