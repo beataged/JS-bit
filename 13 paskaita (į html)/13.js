@@ -69,21 +69,40 @@ console.log(ezerai.sort(zodzioIlgis));
 console.log('____________sujungimas su HTML___________');
 
 let newH1 = document.createElement('h1');
-let newH12 = document.createElement("h1");
+let newH12 = document.createElement('h1');
+
+let labasVakaras = document.createTextNode('Labas Vakaras');
+newH1.appendChild(labasVakaras);
 
 let oldH1 = document.querySelector(".old");
 let body = document.querySelector('body');
-let container = document.querySelector('container');
+let container = document.querySelector('.container');
 
-// container.insertBefore(newH1, oldH1);
-// container.appendChild(newH1);
+//parenkam ka norim insertint newh1 ir po ko oldH1, body yra tevinis elementas i kurio vidu dedame naujai sukurta elementa
+container.insertBefore(newH1, oldH1);
+container.appendChild(newH1); //prideda i gala
+
+container.style.backgroundColor = 'blue';
+newH1.style.color = 'red';
+
+
+let h1 = document.querySelector('.old'); //pasirenkamas elementas
+h1.classList.add('bla'); //pritaikoma klase bla (be tasko, nes classList tik klases buna)
+
 
 console.log(newH1);
 console.log(oldH1);
 console.log(body);
 
-// let hello = document.createElement('Hello');
-// let hello = document.createTextNode('Hello');
+let lis = document.querySelectorAll('li');
+
+console.log(lis);
+
+for(let i = 0; lis.length < 10; i++){
+    if (i % 3 === 0) {
+        lis[i].style.color = 'green';
+    }
+}
 
 for(let i = 0; i < 10; i++){
 
@@ -94,6 +113,11 @@ for(let i = 0; i < 10; i++){
     let container = document.querySelector('.container');
 
     container.appendChild(newDiv);
+
+
+    if (i % 3 === 0) {
+        newDiv.style.color = 'Green';
+    }
 }
 
 
@@ -111,3 +135,4 @@ for(let i = 0; i < 10; i++){
 
 // //5. Į tėvą įdedame sukurtą elementą
 // container.appendChild(newH1);
+
