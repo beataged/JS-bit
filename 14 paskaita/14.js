@@ -124,13 +124,13 @@ tagas4.style.color = 'grey';
 //h Suskaičiuoti kiek yra naujų gyvūnų (su klase new);
 //i Suskaičiuoti atskirai kiek yra naujų gyvūnų kiekvienoje kategorijoje;
 //2a
-const heading2 = document.querySelectorAll ('h2');
+const heading2 = document.querySelectorAll('h2');
 //2b
 console.log('h2 nariu yra:', heading2.length);
 
 let counter = 0;
-for(let i = 0; i<heading2.length; i++){
-    if(!heading2[i].classList.contains('first')){
+for (let i = 0; i < heading2.length; i++) {
+    if (!heading2[i].classList.contains('first')) {
         counter++;
     }
 }
@@ -139,7 +139,7 @@ console.log(counter);
 // const allH1NotFirst = document.querySelector('h2:not(.first)');
 
 //2c
-heading2.forEach(i =>i.style.color = 'lightblue');
+heading2.forEach(i => i.style.color = 'lightblue');
 
 //2d
 
@@ -157,7 +157,7 @@ const gyvunai = document.querySelectorAll('ul');
 console.log("gyvunu ir zirafu yra:", gyvunai.length);
 
 const zirafos = document.querySelectorAll('#zirafos > li');
-console.log("zirafu yra:", zirafos.length-1);
+console.log("zirafu yra:", zirafos.length - 1);
 
 //g Tagus ul apibraukite rėmeliais ir uždėkite 15px paddingą viršuje ir apačioje ir 50px paddingą kairėje ir dešinėje;
 
@@ -183,30 +183,116 @@ console.log(ats);
 
 // /Elementų events
 //a Padaryti tai ką liepia mygtukai Header1 sekcijoje;
+//g Padaryti tai ką liepia mygtukai Header2 sekcijoje;
 const click = document.querySelector('#h1-color');
 
-click.addEventListener('click', () => tagas.style.color = 'red' );
+click.addEventListener('click', () => tagas.style.color = 'red');
 
 const click2 = document.querySelector('#h1-font');
 
-click2.addEventListener('click', () => tagas.style.fontSize = '10px' );
+click2.addEventListener('click', () => tagas.style.fontSize = '10px');
 
 const click3 = document.querySelector('#h1-color-back');
 
-click3.addEventListener('click', () => tagas.style.color = null );
+click3.addEventListener('click', () => tagas.style.color = null);
 
 const click4 = document.querySelector('#h1-font-back');
 
-click4.addEventListener('click', () => tagas.style.fontSize = null );
+click4.addEventListener('click', () => tagas.style.fontSize = null);
 
 //b Padaryti, kad paspaudus ant i tago jis pakeistų fonto svorį į bold;
+const clicki = document.querySelector('i');
+clicki.addEventListener('click', () => clicki.style.fontWeight = 'bold');
 
-
-
-// tagas1. addEventListener('click', () => )
 //c Padaryti, kad paspaudus ant tago su klase prices, backgroundas pasikeistų į pilką, o paspaudus dar kartą vėl grįžtu į baltą spalvą;
+const clickPrices = document.querySelector('.prices');
+clickPrices.addEventListener('click', () => {
+    if (clickPrices.style.background == 'white') {
+        clickPrices.style.background = 'grey';
+    } else {
+        clickPrices.style.background = 'white';
+    }
+});
+
+
 //d Padaryti, kad paspaudus ant tago su id contacts, tam tagui būtų pridėta css savybė color = orange;
+
+const tagContacts = document.querySelector('#contacts');
+tagContacts.addEventListener('click', () => tagContacts.style.color = 'orange');
+
 //e Padaryti taip, kad paspaudus ant padidinti, esančio tage su id contacts, tagui su id contacts būtų pridėta css savybė fontSize = 20px;
+
+const padidinti = document.querySelector('#contacts > u');
+padidinti.addEventListener('click', () => tagContacts.style.fontSize = '20px');
+
 //f Padaryti taip, kad paspaudus ant X, esančio tage su id contacts, pridėtos tage su id contacts savybės būtų panaikintos https://stackoverflow.com/questions/18691655/remove-style-on-element
-//g Padaryti tai ką liepia mygtukai Header2 sekcijoje;
+
+const X = document.querySelector('#contacts > b');
+X.addEventListener('click', f => {
+    tagContacts.style.fontSize = null;
+    tagContacts.style.color = null;
+    f.stopPropagation();
+});
+
+//4. Elementų grupių events
+//a Padaryti, kad dukartus paspaudus ant naujų gyvūnų jie nusispalvintu raudonai https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event
+
+const newAnimals = document.querySelectorAll('.new');
+newAnimals.forEach(i => {
+    i.addEventListener('dblclick', () => i.style.color = 'red');
+});
+
+//b Padaryti, kad paspaudus ant gyvūno jis būtų atvaizduojamas 130% didesniu fonto dydžiu. “PATINKA” tas neturi galioti.
+
+const animal = document.querySelectorAll('li:not(.like-button');
+animal.forEach(i => {
+    i.addEventListener('click', () => {
+        i.style.fontSize = '130%';
+    });
+});
+
+
+//c Padaryti, kad paspaudus ant “PATINKA”, atitinkamai sekcijai būtų priskirta klasė like;
+
+const patinka = document.querySelectorAll('.like-button');
+patinka.forEach(i => {
+    i.addEventListener('click', () => {
+        i.closest('ul').classList.add('like');
+    });
+});
+
+
+//5 Dinaminis elementų kūrimas
+//a Dinamiškai su JS pridėti naują kainą “Senjorai tik: 1.99 eur”;
+let senjorams = document.createElement('h2');
+let senjoramsTekstas = document.createTextNode('Senjorai tik: 1.99 eur');
+senjorams.appendChild(senjoramsTekstas);
+let prices = document.querySelector('.prices');
+prices.appendChild(senjorams);
+
+//b Dinamiškai su JS Pridėti naują kainą “Senjorų grupė iki 10: tik 5.99 eur” Padaryti, kad pridėtas elementas turėtų klasę new ir ant jo paklikinus jis pasidarytų žalias;
+
+let grupe = document.createElement('h2');
+let grupeTekstas = document.createTextNode('Senjorų grupė iki 10: tik 5.99 eur');
+grupe.appendChild(grupeTekstas);
+prices.appendChild(grupe);
+
+grupe.classList.add('new');
+grupe.addEventListener('click', () => grupe.style.color = 'green');
+// grupe.stopPropagation();
+
+// //c Dinamiškai su JS kiekvienoje gyvūnų kategorijoje po “PATINKA” pridėkite dar vieną li elementą “NEPATINKA”, kurį paspaudus atitinkamoje sekcijoje būtų nuimta klasė like
+
+document.querySelectorAll('ul').forEach(ul => {
+    let newLi = document.createElement('li');
+    let nepatinka = document.createTextNode('NEPATINKA');
+    newLi.appendChild(nepatinka);
+    ul.querySelector('.like-button').parentNode.insertBefore(newLi, ul.querySelector('.like-button').nextSibling);
+    newLi.addEventListener('click', () =>{
+        ul.classList.remove('like');
+        });
+});
+
+//d Dinamiškai su JS sukurkite naują mygtukų grupę HEADER 3 naudojant analogišką html tagų struktūrą kaip ir HEADER 1 ir HEADER 2. Pirmas mygtukas vadintųsi, “Pabraukti H1 tagą”, o antras “Nepabraukti H1 tagą”. Mygtukai turi daryti tai kas ant jų parašyta
+
 
