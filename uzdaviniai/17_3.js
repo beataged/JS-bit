@@ -65,3 +65,23 @@ input3.forEach(i =>{
         h3.innerText = i.value;
     });
 });
+
+//8 Pakartoti 1-5 uždavinius. Kiekvienam uždaviniui sukurti naują tuščią masyvą (arba vieną objektą su 5 masyvais viduje). Kiekvieną pasikeitimo reikšmę įrašyti į masyvą kaip naują elementą (5 uždavinio atveju įrašyti masyvą su pažymėtom reikšmėm) ir į console.log išvesti tą masyvą.
+
+const result = {
+    pirmas: [],
+    antras: [],
+    trecias: [],
+    ketvirtas: [],
+    penktas: []
+}
+
+document.querySelector('#b1').addEventListener('click', () => {
+    result.pirmas.push(document.querySelector('#i1').value);
+    console.log(result);
+});
+
+document.querySelector('#i2').addEventListener('change', () => {
+    result.antras.push(document.querySelector('#i2').value);
+    console.log(result);
+})

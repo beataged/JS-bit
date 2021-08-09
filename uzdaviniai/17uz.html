@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="17_3.js" defer></script>
 </head>
 
@@ -38,6 +39,40 @@
     <label for="vakaras">Vakaras</label>
 
     <h1 id="h1">H1</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <ul class="list-group m-5">
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label>Uždavinys nr. 1</label>
+                            <input type="text" id="i1" class="form-control" placeholder="Parašyk ką nors">
+                            <small class="form-text text-muted">Parašyk ką nors.</small>
+                        </div>
+                        <button type="button" id="b1" class="btn btn-success">Pirmas</button>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label>Uždavinys nr. 2</label>
+                            <select id="i2" class="form-control">
+                                <option selected disabled>Pasirink laiką</option>
+                                <option value="Rytas">Rytas</option>
+                                <option value="Diena">Diena</option>
+                                <option value="Vakaras">Vakaras</option>
+                            </select>
+                            <small class="form-text text-muted">Pasirink laiką.</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
