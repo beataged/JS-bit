@@ -88,6 +88,7 @@ class Animal {
         <span> Tail long: ${this.tailLong}cm</span>
         <span> Color: ${this.color}</span>
         <i> ${horn}</i>
+        <button data-id="${this.id}">Delete</button>
         `;
         this.element.innerHTML = html;
     }
