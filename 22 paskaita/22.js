@@ -107,13 +107,23 @@ class Pinigine2{
     };
 };
 
+
+
 console.log('______________TV____________');
 
 class TV {
-    constructor(){
-        this.savininkas = 'Parduotuve';
-        this.kanalas = null;
+    static programa = ['MTV', 'TNT', 'TV6', 'RenTv'];
+
+    static naujaPrograma(pr){
+        this.programa = pr; //this rodo i klase
     }
+
+    constructor(){
+        this.savininkas = 'Parduotuve'; //this rodo i objekta
+        this.kanalas = null;
+        this.programa = ['LRT', 'TV3', 'LNK', 'Polonia'];
+    }
+
     pirkimas(vardas){
         this.savininkas = vardas;
     };
@@ -130,9 +140,13 @@ const tv2 = new TV();
 const tv3 = new TV();
 
 tv2.pirkimas('Antanas');
+tv2.programa = ['MTV', 'TNT', 'TV6', 'RenTv'];
+tv3.programa = ['MTV', 'TNT', 'TV6', 'RenTv'];
+tv1.programa = ['MTV', 'TNT', 'TV6', 'RenTv'];
+
 tv3.pirkimas('Birute');
 tv3.perjungtiKanala(2);
-
+tv2.perjungtiKanala(2);
 
 tv1.infoApieTv();
 tv2.infoApieTv();
