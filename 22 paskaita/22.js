@@ -145,6 +145,7 @@ tv3.programa = ['MTV', 'TNT', 'TV6', 'RenTv'];
 tv1.programa = ['MTV', 'TNT', 'TV6', 'RenTv'];
 
 tv3.pirkimas('Birute');
+tv1.pirkimas('Jonas');
 tv3.perjungtiKanala(2);
 tv2.perjungtiKanala(2);
 
