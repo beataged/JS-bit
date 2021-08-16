@@ -72,14 +72,16 @@ Animal.createAnimal('Dramblys', 20, 'grey', false);
 console.log(Animal.mas);
 
 Animal.renderZoo();
-Animal.clearZoo();
+//Animal.clearZoo();
 
 const specie = document.querySelector('#specie');
 const tale = document.querySelector('#tail');
 const color = document.querySelector('#color');
 
 document.querySelector('#button').addEventListener('click', () => {
-    Animal.mas.push(Animal.createAnimal(specie.value, tail.value, color.value, hasHorns.checked));
+    Animal.clearZoo();
+    Animal.createAnimal(specie.value, tail.value, color.value, hasHorns.checked);
+    Animal.renderZoo();
 })
 
 //14. sukurti metodą kuris generuotų atsitiktinius skaičius nuo 1000000 iki 9999999 ir priskirti tą skaičių savybei id, ir pasileistų konstruktoriuje
