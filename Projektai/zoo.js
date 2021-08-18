@@ -4,42 +4,13 @@
 class Animal {
 
     //2. Sukurti statini metodą createAnimal su keturiais argumentais, kuris gamintų Animal objektą ir dėtų jį į statinę savybę animals
-    static mas = [];
+    static animals = [];
 
     element; //nuoroda i html taga su animalu
 
-    static createAnimal(specie, tailLong, color, hasHorn) {
-        this.mas.push(new Animal(specie, tailLong, color, hasHorn));
-    };
-
-    //4 Sukurti statinį metodą renderZoo, kuris atvaizduotų visus sukurtus gyvūnus iš statinės savtbės-masyvo animal
-
-    static renderZoo() {
-        this.mas.forEach(animal => {
-            animal.render();
-        });
-    };
-
-    //5 Sukurti statinį metodą clearZoo() kuris ištrintų visus žvėris iš DOM HTML, bet ne iš masyvo animals
-
-    static clearZoo() {
-        this.mas.forEach(animal => document.querySelector('body').removeChild(animal.element));
-    };
-
-    static buttonCreate() {
-        const specie = document.querySelector('#specie');
-        const tale = document.querySelector('#tail');
-        const color = document.querySelector('#color');
-
-        document.querySelector('#button').addEventListener('click', () => {
-            this.clearZoo();
-            this.createAnimal(specie.value, tail.value, color.value, hasHorns.checked);
-            this.renderZoo();
-        });
-    };
-
     static start() {
         this.buttonCreate();
+        this.buttonHideModal();
 
         // Animal.createAnimal('Zebras', 36, 'black-white', false);
         // Animal.createAnimal('Zirafa', 30, 'brown-white', true);
@@ -47,46 +18,132 @@ class Animal {
         // Animal.createAnimal('Dramblys', 20, 'grey', false);
 
         this.load();
-
-        Animal.renderZoo();
     };
 
     static deleteAnimal(id) {
-        this.mas.forEach((animal, index) => {
+        this.animals.forEach((animal, index) => {
             if (id == animal.id) {
                 this.clearZoo();
-                this.mas.splice(index, 1);
+                this.animals.splice(index, 1);
                 this.renderZoo();
             }
-
         });
         this.save();
-    };
+        this.hideEditModal();
+    }
+
+static editAnimal(id, specie, tailLong, color, hasHor){
+    this.animals.forEach(animal =>{
+        if(id===animal.id){
+            this.clearZoo();
+            animal.specie = specie;
+            animal.tail = tailLong;
+            animal.color = color;
+            animal.horn = hasHorn;
+            this.renderZoo();
+        }
+    })
+    
+}
 
 
+    static createAnimal(specie, tailLong, color, hasHorn) {
+        this.clearZoo(); // iš html'o ištrinam visus gyvulius
+        this.animals.push(new Animal(specie, tailLong, color, hasHorn));
+        this.renderZoo(); // iš naujo sudedame visus gyvulius į html'ą
+        this.save();
+    }
 
     static save() {
         const data = [];
-        this.mas.forEach(animal => {
+        this.animals.forEach(animal => {
             data.push({
                 specie: animal.specie,
-                tailLong: animal.tailLong,
+                tail: animal.tail,
                 color: animal.color,
-                hasHorn: animal.hasHorn
-            });
+                horn: animal.horn
+            })
         });
         localStorage.setItem('zooApp', JSON.stringify(data));
-
-
-        console.log(data);
-
     };
 
     static load() {
-        if (null === localStorage.getItem('zooApp')) {localStorage.setItem('zooApp', JSON.stringify([]));}
-
-        JSON.parse(localStorage.getItem('zooApp')).forEach(animal => this.createAnimal(animal.specie, animal.tailLong, animal.color, animal.hasHorn));
+        if (null === localStorage.getItem('zooApp')) {
+            localStorage.setItem('zooApp', JSON.stringify([]));
+        }
+        JSON.parse(localStorage
+            .getItem('zooApp'))
+            .forEach(animal => this.createAnimal(animal.specie, animal.tail, animal.color, animal.horn));
     }
+
+    //4 Sukurti statinį metodą renderZoo, kuris atvaizduotų visus sukurtus gyvūnus iš statinės savtbės-masyvo animal
+
+    static renderZoo() {
+        this.animals.forEach(animal => animal.render());
+    }
+
+    //5 Sukurti statinį metodą clearZoo() kuris ištrintų visus žvėris iš DOM HTML, bet ne iš masyvo animals
+
+
+    static clearZoo() {
+        this.animals.forEach(animal => {
+            document.querySelector('body').removeChild(animal.element)
+        });
+
+    };
+
+    static showEditModal(animal) {
+        const modal = document.querySelector('#edit');
+        modal.style.display = 'block';
+        modal.style.opacity = 1;
+
+        modal.querySelector('.btn-primary').dataset.id = animal.id;
+
+        const specie = document.querySelector('#specie-modal');
+        const tail = document.querySelector('#tail-modal');
+        const color = document.querySelector('#color-modal');
+        const horn = document.querySelector('#horn-modal');
+
+        specie.value = animal.specie;
+        tail.value = animal.tail;
+        color.value = animal.color;
+        horn.checked = animal.horn;
+
+    };
+
+    static hideEditModal() {
+        const modal = document.querySelector('#edit');
+        modal.style.display = 'none';
+        modal.style.opacity = 0;
+        delete modal.querySelector('.btn-primary').dataset.id;
+    }
+
+
+    static buttonCreate() {
+        const specie = document.querySelector('#specie');
+        const tail = document.querySelector('#tail');
+        const color = document.querySelector('#color');
+        const horn = document.querySelector('#horn');
+        document.querySelector('#button').
+            addEventListener('click', () => {
+                this.createAnimal(specie.value, tail.value, color.value, horn.checked);
+            });
+    }
+
+    static buttonEdit(){
+        const specie = document.querySelector('#specie-modal');
+        const tail = document.querySelector('#tail-modal');
+        const color = document.querySelector('#color-modal');
+        const horn = document.querySelector('#horn-modal');
+
+        document.querySelector('.modal .btn-primary').addEventListener('click', (e) => {
+            this.editAnimal(e.target.dataset.id, specie.value, tail.value, color.value, horn.checked);
+        });
+    };
+
+    static buttonHideModal() {
+        document.querySelector('#edit .close').addEventListener('click', () => this.hideEditModal());
+    };
 
     constructor(specie, tailLong, color, hasHorn) {
         this.specie = specie,
@@ -100,6 +157,7 @@ class Animal {
         this.createAnimalElement();
         this.createAnimalHtml();
         this.deleteButton();
+        this.editButton();
     }
 
     //5. Sukurkite createAnimalElement metodą, kuris sukuria naują DIV elementą ir jį įdeda į DOM'ą (htmlą)
@@ -117,16 +175,18 @@ class Animal {
     //10. paleisti padarytą metodą konstruktoriuje
 
     createAnimalHtml() {
-        const horn = this.hasHorn ? 'Has horn' : 'No horn';
+        const horn = this.horn ? 'With horn' : 'Without horn';
         const html = `
-        <h1> ${this.specie}</h1>
-        <span> Tail long: ${this.tailLong}cm</span>
-        <span> Color: ${this.color}</span>
-        <i> ${horn}</i>
-        <button class = 'delete' >Delete</button>
-        <button class= 'edit'>Edit</button>
+        <div class="card" style="width: 21rem;">
+            <div class="card-body">
+                <h5 class="card-title">${this.specie}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Color: ${this.color}</h6>
+                <p class="card-text">Tail long: ${this.tail} cm. <i> ${horn} </i></p>
+                <button type="button" class="btn btn-success">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
         `;
-
         this.element.innerHTML = html;
     }
 
@@ -135,9 +195,16 @@ class Animal {
     };
 
     deleteButton() {
-        this.element.querySelector('.delete').addEventListener('click', () => this.constructor.deleteAnimal(this.id));
+        this.element.querySelector('.btn-danger').addEventListener('click', () => this.constructor.deleteAnimal(this.id));
     };
 
+    deleteButton() {
+        this.element.querySelector('.btn-danger').addEventListener('click', () => this.constructor.deleteAnimal(this.id));
+    };
+
+    editButton() {
+        this.element.querySelector('.btn-success').addEventListener('click', () => this.constructor.showEditModal(this));
+    }
 };
 
 

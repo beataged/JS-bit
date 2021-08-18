@@ -7,22 +7,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZOO</title>
     <script src="zoo.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
 </head>
 
 <body>
 
+    <!-- Modal -->
+
+    <div class="modal fade" id='edit' tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <label for="specie-modal">Animal specie:</label>
+                    <input type="text" id="specie-modal" name="specie"><br>
+
+                    <label for="tale-modal">Animal tale: </label>
+                    <input type="text" id="tale-modal" name="tale"><br>
+
+                    <label for="color-modal">Animal color:</label>
+                    <input type="text" id="color-modal" name="color"><br>
+
+                    <label for="horn-modal">Has horns?</label><br>
+                    <input type="checkbox" id="horn-modal" name="horn" value="horns">
+                    <br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <label for="specie">Animal specie:</label>
-    <input type="text" id="specie" name="animals"><br>
+    <input type="text" id="specie" name="specie"><br>
 
     <label for="tale">Animal tale: </label>
-    <input type="text" id="tail" name="animals"><br>
+    <input type="text" id="tail" name="tale"><br>
 
     <label for="color">Animal color:</label>
-    <input type="text" id="color" name="animals"><br>
+    <input type="text" id="color" name="color"><br>
 
-    <label for="hasHorns">Has horns?</label><br>
-    <input type="checkbox" id="hasHorns" name="animals" value="horns">
+    <label for="horn">Has horns?</label><br>
+    <input type="checkbox" id="horn" name="horn" value="horns">
     <br>
     <button id='button'>Create</button>
 
