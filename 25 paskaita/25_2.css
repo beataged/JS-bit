@@ -1,0 +1,22 @@
+:root{
+    --colr: red;
+    --line: 3px solid var(--colr);
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: aquamarine;
+}
+
+.balls{
+    position: absolute;
+    top:400px;
+    left: 400px;
+    width: 100px;
+    height: 100px;
+    border: var(--line);
+    border-radius: 50%;
+    background-color: red;
+    transition: all 1s;
+}
