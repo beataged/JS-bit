@@ -29,7 +29,6 @@ class Animal {
             }
         });
         this.save();
-        this.hideEditModal();
     }
 
 static editAnimal(id, specie, tailLong, color, hasHor){
@@ -42,7 +41,9 @@ static editAnimal(id, specie, tailLong, color, hasHor){
             animal.horn = hasHorn;
             this.renderZoo();
         }
-    })
+    });
+    this.save();
+    this.hideMOdal('#edit'); 
     
 }
 
@@ -111,8 +112,15 @@ static editAnimal(id, specie, tailLong, color, hasHor){
 
     };
 
+    static showDeleteConfirmModal(id) {
+        const modal = document.querySelector('#confirm-delete');
+        modal.style.display = 'block';
+        modal.style.opacity = 1;
+        modal.querySelector('.btn-primary').dataset.id = id;
+    }
+
     static hideEditModal() {
-        const modal = document.querySelector('#edit');
+        const modal = document.querySelector('#' + id);
         modal.style.display = 'none';
         modal.style.opacity = 0;
         delete modal.querySelector('.btn-primary').dataset.id;
@@ -140,6 +148,14 @@ static editAnimal(id, specie, tailLong, color, hasHor){
             this.editAnimal(e.target.dataset.id, specie.value, tail.value, color.value, horn.checked);
         });
     };
+
+    static buttonConfirmDelete(){
+        addEventListener('click', (e) => {
+            this.deleteAnimal(e.target.dataset.id);
+            this.hideModal('confirm-delete');
+        });
+    };
+    
 
     static buttonHideModal() {
         document.querySelector('#edit .close').addEventListener('click', () => this.hideEditModal());
