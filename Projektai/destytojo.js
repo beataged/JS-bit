@@ -281,10 +281,6 @@ class ToDoListDOM {
         });
     }
 
-
-
-
-
 }
 
 
@@ -297,7 +293,7 @@ const todo = new ToDoListDOM();
 
 // console.log(ToDoList.lists);
 
-// console.log(ToDoList.lists.get(CREATED).getUid());
+ //console.log(ToDoList.lists.get(CREATED).getUid());
 
 
 console.log(l1.getUid());
