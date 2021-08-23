@@ -33,11 +33,15 @@
     left: 400px;
     width: 100px;
     height: 100px;
-    border: var(--line);
     border-radius: 50%;
 }
 
 .ball2{
     top:300px;
     left: 300px;
+}
+.noselect{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
