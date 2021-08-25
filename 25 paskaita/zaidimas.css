@@ -2,30 +2,6 @@
     --colr: red;
     --line: 3px solid var(--colr);
 }
-#line{
-    width: 40px;
-    display: flex;
-    flex-direction: column;
-}
-
-#line .part{
-    box-sizing: border-box;
-    width: 20px;
-    height: 200px;
-    position: relative;
-    border-top: var(--line);
-    border-left: var(--line);
-}
-
-#line .part span{
-    font-size: 16px;
-    display: inline-block;
-    position: absolute;
-    left:23px;
-    bottom: -10px;
-    font-weight: bold;
-    color: var(--colr);
-}
 
 .ball, .ball2 {
     position: absolute;
@@ -45,7 +21,6 @@
     justify-content: flex-start;
     align-items: flex-start;
 }
-
 button {
     width: 150px;
     height: 50px;
