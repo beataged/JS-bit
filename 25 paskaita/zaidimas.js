@@ -42,19 +42,30 @@ class Burbulai {
     static w;
     static h;
     // static start = false;
-
-    static start(){
+    static startButton = document.querySelector('button#start');
+    static timerDiv = document.querySelector('.timer');
+    static timeStart;
+    static clockId;
+    static start() {
         document.querySelector('body').addEventListener('click', () => this.naujasBurbulas());
         this.ekranoDydis();
         this.burbulai = new Map();
         const startButton = document.querySelector('button#start');
         startButton.addEventListener('click', e => {
             e.stopPropagation();
-            for(let i = 1; i<=5; i++){
+            for (let i = 1; i <= 5; i++) {
                 setTimeout(this.naujasBurbulas, this.rand(1, 2000))
             }
             startButton.style.display = 'none';
+            this.TimeStart = new Date();
+            this.clockId = setInterval(this.doTick, 100);
         })
+    }
+    static doTick = () => {
+        const tic = new Date();
+        const time = tic.getTime() - this.start.getTime();
+        this.timerDiv.innerText = time;
+
     }
     // static naujasBurbulas () {
     //     if (!this.start ) {
@@ -93,7 +104,13 @@ class Burbulai {
     static pagautas(b) {
         document.querySelector('body').removeChild(b.element);
         this.burbulai.delete(b.id);
+        if (this.burbulai.size === 0) {
+            this.gameEnd();
+        }
+    }
 
+    static gameEnd() {
+        this.startButton.style.display = 'block';
     }
 
     constructor() {
@@ -107,7 +124,7 @@ class Burbulai {
         setTimeout(this.varyk, 30);
 
         this.element.addEventListener('click', e => {
-            e.stopPropagation;
+            e.stopPropagation();
             this.constructor.pagautas(this)
         });
 

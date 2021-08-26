@@ -60,3 +60,30 @@ map1 = new Map();
 ['Zuikis', 'Kiskis', 'Triusis', 'Rabitas'].forEach(z => map1.set(z, rand(5, 25)));
 
 console.log(map1)
+
+//9 išrūšiuokite mapą pagal gyvulių pavadinimus abėcėlės tvarka
+const mas9 = [...map1].sort((a,b) => {
+    if(a[0] < b[0]){
+        return -1;
+    }
+    if(a[0] > b[0]){
+        return 1;
+    }
+    return 0;
+})
+
+console.log(mas9.slice());
+console.log(new Map(mas9));
+
+map1.clear();
+mas9.forEach(v => map1.set(v[0], v[1]));
+
+console.log(mas9);
+
+
+//10 Išrūšiuokite Mapą pagal uodegų ilgius didėjančia tvarka
+
+const mas10 = [...map1].sort((a,b)=>a[1] - b[1]);
+
+console.log(mas10.slice());
+ 

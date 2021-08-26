@@ -78,3 +78,20 @@ button:hover:after {
 button:focus {
     outline: none;
 }
+
+.timer{
+position: fixed;
+top:10px;
+right:10px;
+height: 48px;
+width: 80px;
+background-color: transparent;
+color:teal;
+font-size: 30px;
+line-height: 30px;
+font-weight: bold;
+box-sizing: border-box;
+border: 1px solid teal;
+padding: 4px;
+text-align: right;
+}
